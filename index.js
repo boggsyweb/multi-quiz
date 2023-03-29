@@ -7,21 +7,43 @@ const nextButton = document.getElementById("next-button");
 const restartButton = document.getElementById("restart-button");
 const resultsContainer = document.getElementById("results-container");
 
+const navBtn = document.getElementById('nav-btn')
+const navMenu = document.getElementById('nav-menu')
+
+navBtn.addEventListener('click', function(e) {
+  if (navMenu.style.display === 'none') {
+    navMenu.style.display = 'flex'
+    e.stopPropagation()
+  }else {
+    navMenu.style.display = 'none'
+  }
+})
+ 
+document.addEventListener('click', function(e) {
+  if (!navBtn.contains(e.target) && !navMenu.contains(e.target)) {
+    navMenu.style.display = 'none'
+  }
+})
+const navLinks = navMenu.querySelectorAll('a');
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    navMenu.style.display = 'none';
+  });
+});
+
 let fontBtn = document.getElementById('font-btn');
 let body = document.getElementsByTagName('body')[0];
-let altFont = "'Roboto Mono', monospace";
+let altFont = "'Atkinson Hyperlegible', sans-serif";
 let defaultFont = "'VT323', monospace";
 let font = defaultFont;
 
 fontBtn.addEventListener('click', function() {
   if (font === defaultFont) {
     font = altFont;
-    fontBtn.textContent = "retro font"
-    body.style.fontSize = "12px"
-    answerButtons.style.width = '100%'
+    fontBtn.textContent = "VT323"
   } else {
     font = defaultFont;
-    fontBtn.textContent = "accessible font"
+    fontBtn.textContent = "Atkinson"
     body.style.fontSize = "inherit"
   }
   body.style.fontFamily = font;
@@ -107,7 +129,7 @@ function selectAnswer(e) {
 function showResults() {
   // Remove question and answer buttons
   questionContainer.innerText = "";
-  answerButtons.style.display = "none";
+  // answerButtons.style.display = "none";
 
   // Show results and "Take Again?" button
   resultsContainer.innerText = `You got ${correctAnswers} out of ${answeredQuestions} correct.`;
@@ -134,10 +156,12 @@ function clearStatusClass(element) {
 }
 
 const typed = new Typed('#intro', {
-  strings: ['<span class="bold">function javaScript</span>', '<span class="bold">function javaScriptQuiz{}</span>', '<span class="bold">function javaScriptQuiz</span>', '<span class="bold">function javaScriptQuiz()</span>', '<span class="bold">function javaScriptQuiz()...??</span>', '<span class="bold">javaScript%$@!*$!</span>', "<span class='bold'>function JavaScriptQuiz() ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the help you can get remembering the concepts and syntax found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m helping to reinforce everything I’ve learned so far. <br> ^1000I hope you enjoy it and find it useful too! <br> ^1000-Stephanie^1000}<br>^1000<a href='#quiz-page' id='start-button'>Start the Quiz</a>"],
+  strings: ['<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript{}</span>', '<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript()</span>', '<span class="bold">function learnJavaScript(quiz)...??</span>', '<span class="bold">learnJavaScript%$@!*$!</span>', "<span class='bold'>function learnJavaScript(quiz) ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far. <br> ^1000I hope you find it useful, and even have some fun! <br> ^1000-Stephanie^1000}<br>^1000<a href='#quiz-page' id='start-button'>addEventListener('click', startQuiz)</a>"],
   typeSpeed: 10,
   backSpeed: 10,
   smartBackspace: true, // this is a default
   loop: false
 })
+
+
 

@@ -10,10 +10,11 @@
     <script src="https://unpkg.com/typed.js@2.0.14/dist/typed.umd.js"></script>   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section id="landing">
+    <button type="button" id="font-btn">Atkinson</button>
+    <section id="home">
         <span id="intro"></span>
     </section>
     <section id="quiz-page">
@@ -28,15 +29,18 @@
         </section>
         <section id="about">
             <h2>About this project</h2>
-                <p>This multiple-choice javaScript quiz was built with vanilla JS and a little text.js thrown in to run the text animation.</p>
-                <p>The fonts I used are VT323 and Roboto Mono, both of which are free from Google Fonts.</p>   
+                <p>This multiple-choice JavaScript quiz was built with vanilla JS and a little text.js thrown in to run the text animation.</p>
+                <p>Because VT323 font can be a little hard on the eyes after awhile, I added the option to change to Roboto Mono. Both fonts are available for free from Google Fonts.</p>   
                 <br>
                 <p>You can reach me here <a href="mailto:stephaniejboggsweb@gmail.com"><i class="fa-solid fa-envelope"></i></a>  <a href="https://github.com/boggsyweb" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://twitter.com/BracketBirdy" target="_blank"><i class="fa-brands fa-twitter"></i></a></p>   
         </section>
         <footer>
-            <a href="#about">About</a>
-            <a href="#landing"><i class="fa-solid fa-arrow-up"></i></a>
-            <button type="button" id="font-btn">Accessible Font</button>
+            <div id="nav-menu" class="menu-content">
+                <a href="#home"><i class="fa-solid fa-house"></i></a>
+                <a href="#quiz-page"><i class="fa-brands fa-square-js"></i></a>
+                <a href="#about"><i class="fa-solid fa-info"></i></a>
+            </div>
+            <a id="nav-btn"><img src="alien.svg" alt=""></a>
         </footer>
     <script src="index.js" type="module"></script>
 </body>
