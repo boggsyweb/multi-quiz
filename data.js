@@ -6,7 +6,7 @@ export const multiQuiz = [
     answer:"array"
     },
     {
-    question: "Which of the following ways to declare a variable in JavaScript has been deprecated?",
+    question: "If you want to delare a variable that's value cannot later be reassigned, what would you use?",
     choices: ["var", "let", "const"],
     answer:"var"
     },
@@ -29,6 +29,35 @@ export const multiQuiz = [
     question: "For which of the following would you expect to see 'false' logged out?",
     choices: ["console.log(0 == false)", "console.log(1 === '1')", "console.log(1 == '1')"],
     answer: "console.log(1 === '1')"
-}
-
+},
+{
+    question: "What does the preventDefault method do in JavaScript?",
+    choices: ["Executes the default behavior of an event", "Prevents the default behavior of an event", "Removes an event listener from an HTML element"],
+    answer: "Prevents the default behavior of an event"
+},
+{
+    question: "How would you describe the function of (||), the Logical OR operator?",
+    choices: ["Returns true only if both operands are false", "Returns true if both operands are true", "Returns true if at least one of the operands is true"],
+    answer: "Returns true if at least one of the operands is true"
+},
+{
+    question: "Which method would you use to delay a function for a specified amount of time?",
+    choices: ["setTimeout()", "setInterval()", "setDelay()"],
+    answer: "setTimeout"
+},
+{
+    question: "What is the purpose of the math.floor method?",
+    choices: ["Rounds a number down to the nearest integer", "Returns the absolute value of a number", "Rounds a number up to the nearest integer"],
+    answer: "Rounds a number down to the nearest integer"
+},
+{
+    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry', 'date'] console.log(fruits[1])",
+    choices: ['banana', 'apple', 'date'],
+    answer: 'banana'   
+},
+{
+    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry', 'date'] console.log(fruits.pop())",
+    choices: ['apple', 'banana', 'cherry'],
+    answer: "cherry"
+}  
 ]

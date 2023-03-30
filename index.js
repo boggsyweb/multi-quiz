@@ -11,13 +11,9 @@ const navBtn = document.getElementById('nav-btn')
 const navMenu = document.getElementById('nav-menu')
 
 navBtn.addEventListener('click', function(e) {
-  if (navMenu.style.display === 'none') {
-    navMenu.style.display = 'flex'
-    e.stopPropagation()
-  }else {
-    navMenu.style.display = 'none'
-  }
+  navMenu.style.display === 'none' ? (navMenu.style.display = 'flex', e.stopPropagation()) : navMenu.style.display = 'none';
 })
+
  
 document.addEventListener('click', function(e) {
   if (!navBtn.contains(e.target) && !navMenu.contains(e.target)) {
@@ -38,16 +34,17 @@ let defaultFont = "'VT323', monospace";
 let font = defaultFont;
 
 fontBtn.addEventListener('click', function() {
-  if (font === defaultFont) {
-    font = altFont;
+  font === defaultFont ? (
+    font = altFont,
     fontBtn.textContent = "VT323"
-  } else {
-    font = defaultFont;
-    fontBtn.textContent = "Atkinson"
+  ) : (
+    font = defaultFont,
+    fontBtn.textContent = "Atkinson",
     body.style.fontSize = "inherit"
-  }
+  );
   body.style.fontFamily = font;
-})
+});
+
 
 let shuffledQuestions;
 let currentQuestionIndex;
@@ -86,44 +83,32 @@ function showQuestion(question) {
     const button = document.createElement("button");
     button.innerText = choice;
     button.classList.add("answer-btn");
-    if (choice === question.answer) {
-      button.dataset.correct = true;
-    }
+    choice === question.answer ? button.dataset.correct = true : null;
     button.addEventListener("click", selectAnswer);
     answerButtons.appendChild(button);
   });
 }
 
 function resetState() {
-  while (answerButtons.firstChild) {
-    answerButtons.removeChild(answerButtons.firstChild); 
-  }
+  while (answerButtons.firstChild) answerButtons.removeChild(answerButtons.firstChild);
   nextButton.disabled = true;
 }
 
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
-  if (correct) {
-    correctAnswers++;
-  }
+  correct ? correctAnswers++ : null;
   answeredQuestions++;
   setStatusClass(selectedButton, correct, true);
   Array.from(answerButtons.children).forEach(button => {
-    if (button !== selectedButton) {
-      setStatusClass(button, button.dataset.correct, false);
-      button.disabled = true;
-      if (!correct && button.dataset.correct) {
-        button.classList.add("show-correct");
-      }
-    }
+    button !== selectedButton ? (
+      setStatusClass(button, button.dataset.correct, false),
+      button.disabled = true,
+      !correct && button.dataset.correct ? button.classList.add("show-correct") : null
+    ) : null;
   });
   nextButton.disabled = false;
-  if (shuffledQuestions.length > currentQuestionIndex) {
-    nextButton.classList.remove("hide");
-  } else {
-    showResults()
-  }
+  shuffledQuestions.length > currentQuestionIndex ? nextButton.classList.remove("hide") : showResults();
 }
 
 function showResults() {
@@ -138,17 +123,11 @@ function showResults() {
   restartButton.classList.remove("hide");
 }
 
-
 function setStatusClass(element, correct, selected) {
   clearStatusClass(element);
-  if (selected) {
-    if (correct) {
-      element.classList.add("correct");
-    } else {
-      element.classList.add("incorrect")
-    }
-  }
+  selected ? (correct ? element.classList.add("correct") : element.classList.add("incorrect")) : null;
 }
+
 
 function clearStatusClass(element) {
   element.classList.remove("correct");
@@ -156,7 +135,7 @@ function clearStatusClass(element) {
 }
 
 const typed = new Typed('#intro', {
-  strings: ['<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript{}</span>', '<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript()</span>', '<span class="bold">function learnJavaScript(quiz)...??</span>', '<span class="bold">learnJavaScript%$@!*$!</span>', "<span class='bold'>function learnJavaScript(quiz) ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far. <br> ^1000I hope you find it useful, and even have some fun! <br> ^1000-Stephanie^1000}<br>^1000<a href='#quiz-page' id='start-button'>addEventListener('click', startQuiz)</a>"],
+  strings: ['<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript{}</span>', '<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript()</span>', '<span class="bold">function learnJavaScript(quiz)...??</span>', '<span class="bold">learnJavaScript%$@!*$!</span>', "<span class='bold'>function learnJavaScript(quiz) ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far. <br> ^1000I hope you find it useful, and even have some fun!}<br>^1000<a href='#quiz-page' id='start-button'>addEventListener('click', startQuiz)</a>"],
   typeSpeed: 10,
   backSpeed: 10,
   smartBackspace: true, // this is a default
