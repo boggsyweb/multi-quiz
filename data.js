@@ -8,7 +8,7 @@ export const multiQuiz = [
     {
     question: "If you want to delare a variable that's value cannot later be reassigned, what would you use?",
     choices: ["var", "let", "const"],
-    answer:"var"
+    answer:"const"
     },
 {
     question: "How do you write an 'if statement' in JavaScript?",
@@ -43,7 +43,7 @@ export const multiQuiz = [
 {
     question: "Which method would you use to delay a function for a specified amount of time?",
     choices: ["setTimeout()", "setInterval()", "setDelay()"],
-    answer: "setTimeout"
+    answer: "setTimeout()"
 },
 {
     question: "What is the purpose of the math.floor method?",
@@ -51,13 +51,18 @@ export const multiQuiz = [
     answer: "Rounds a number down to the nearest integer"
 },
 {
-    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry', 'date'] console.log(fruits[1])",
-    choices: ['banana', 'apple', 'date'],
+    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry'] console.log(fruits[1])",
+    choices: ['apple', 'banana', 'cherry'],
     answer: 'banana'   
 },
 {
-    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry', 'date'] console.log(fruits.pop())",
+    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry'] console.log(fruits.pop())",
     choices: ['apple', 'banana', 'cherry'],
     answer: "cherry"
-}  
+},
+{
+    question: "What will be logged out? let fruits = ['apple', 'banana', 'cherry'] console.log(fruits.shift())",
+    choices: ['apple', 'banana', 'cherry'],
+    answer: "apple"
+}
 ]
