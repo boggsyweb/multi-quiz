@@ -133,14 +133,41 @@ function clearStatusClass(element) {
   element.classList.remove("correct");
   element.classList.remove("incorrect");
 }
+const skipButton = document.getElementById('skip-button');
+const alternativeText = document.getElementById('alternative-text');
+const intro = document.getElementById('intro');
 
 const typed = new Typed('#intro', {
-  strings: ['<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript{}</span>', '<span class="bold">function learnJavaScript</span>', '<span class="bold">function learnJavaScript()</span>', '<span class="bold">function learnJavaScript(quiz)...??</span>', '<span class="bold">learnJavaScript%$@!*$!</span>', "<span class='bold'>function learnJavaScript(quiz) ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far. <br> ^1000I hope you find it useful, and even have some fun!}<br>^1000<a href='#quiz-page' id='start-button'>addEventListener('click', startQuiz)</a>"],
+  strings: [
+    'function learnJavaScript',
+    'function learnJavaScript{}',
+    'function learnJavaScript',
+    'function learnJavaScript()',
+    'function learnJavaScript(quiz)...??',
+    'learnJavaScript%$@!*$!',
+    "<span class='bold'>function learnJavaScript(quiz) ^1000{</span> <br> ^1000 If you’re anything like me,^1000 you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. ^1000 Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far. <br> ^1000I hope you find it useful, and even have some fun!}<br>^1000<a href='#quiz-page' class='start-button link-style'>addEventListener('click', startQuiz)</a>"
+  ],
   typeSpeed: 10,
   backSpeed: 10,
-  smartBackspace: true, // this is a default
-  loop: false
-})
+  smartBackspace: true,
+  loop: false,
+  onComplete: () => {
+    skipButton.style.display = 'none';
+  }
+});
+
+// skip button removes typed.js and inserts static text
+
+skipButton.addEventListener('click', () => {
+  typed.destroy();
+  intro.style.display = 'none'
+  skipButton.style.display = 'none';
+  alternativeText.style.display = 'block';
+});
+
+
+
+
 
 
 

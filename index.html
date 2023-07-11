@@ -16,6 +16,13 @@
     <button type="button" id="font-btn">Atkinson</button>
     <section id="home">
         <span id="intro"></span>
+        <div id="alternative-text">
+            <span class="bold">function learnJavaScript(quiz) {</span>
+                <br>If you’re anything like me, you need all the practice you can get to help you remember the syntax and concepts found in JavaScript. Through writing both the questions and the code for this quiz, I’m reinforcing everything I’ve learned so far.
+                I hope you find it useful, and even have some fun!}
+                <br>addEventListener<a class="start-button link-style" href="#quiz-page">('click', startQuiz)</a><span class="skip-cursor">|</span>
+        </div>
+        <button id="skip-button">Skip</button>
     </section>
     <section id="quiz-page">
         <div class="quiz-container">
@@ -29,17 +36,17 @@
         </section>
         <section id="about">
             <h2>About this project</h2>
-                <p>This multiple-choice JavaScript quiz was built with vanilla JS and a little <a href="https://github.com/mattboldt/typed.js/" target="_blank">typed.js</a> thrown in to run the text animation.</p>
-                <p>Because VT323 font can be a little hard on the eyes after awhile, I added the option to change to Roboto Mono. Both fonts are available for free from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>.</p>   
+                <p>This multiple-choice JavaScript quiz was built with vanilla JS and a little <a class="link-style" href="https://github.com/mattboldt/typed.js/" target="_blank">typed.js</a> thrown in to run the text animation.</p>
+                <p>Because VT323 font can be hard on the eyes after awhile, I added the option to change to Roboto Mono. Both fonts are available for free from <a class="link-style" href="https://fonts.google.com/" target="_blank">Google Fonts</a>.</p>   
                 <br>
                 <p>You can reach me here <a href="mailto:stephaniejboggsweb@gmail.com"><i class="fa-solid fa-envelope"></i></a>  <a href="https://github.com/boggsyweb" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://twitter.com/BracketBirdy" target="_blank"><i class="fa-brands fa-twitter"></i></a></p>   
         </section>
         <footer>
-            <div id="nav-menu" class="menu-content">
+            <nav id="nav-menu" class="menu-content">
                 <a href="#home"><i class="fa-solid fa-house"></i></a>
                 <a href="#quiz-page"><i class="fa-brands fa-square-js"></i></a>
                 <a href="#about"><i class="fa-solid fa-info"></i></a>
-            </div>
+            </nav>
             <a id="nav-btn"><img src="alien.svg" alt=""></a>
         </footer>
     <script src="index.js" type="module"></script>
